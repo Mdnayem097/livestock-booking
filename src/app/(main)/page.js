@@ -2,7 +2,12 @@ import Image from "next/image";
 import Link from "next/link";
 import dns from "node:dns";
 dns.setServers(['8.8.8.8', '8.8.4.4']);
-export default function Home() {
+
+
+export default async function Home() {
+  const animalsData = await fetch('https://livestock-booking.vercel.app/animals-data.json')
+  const data = await animalsData.json()
+
   return (
     <>
       <div className="relative w-10/12 h-[250px] md:h-[600px]">
@@ -24,18 +29,46 @@ export default function Home() {
           <h2 className="text-2xl font-bold mb-6">
             Featured Animals
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
 
-            <div className="border p-3 rounded-lg">
-              <img src="/cow.jpg" className="rounded" />
-              <h3 className="mt-2">Desi Cow</h3>
-              <p className="text-green-600">৳120000</p>
-            </div>
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+            {data.map((animal) => (
+              <Link key={animal.id} href={`/animals/${animal.id}`}>
+                <div className="border border-green-600 rounded-lg p-3 hover:shadow cursor-pointer">
 
-            {/* 3 more cards */}
+                  <div className="relative w-full h-[180px]">
+                    <Image
+                      src={animal.image}
+                      alt={animal.name}
+                      fill
+                      className="object-cover rounded"
+                    />
+                  </div>
 
+                  <h3 className="mt-2 font-semibold">{animal.name}</h3>
+
+                  <p className="text-green-600 font-medium">
+                    ৳{animal.price}
+                  </p>
+
+                  <p className="text-sm text-gray-500">
+                    {animal.location}
+                  </p>
+
+                </div>
+              </Link>
+            ))}
           </div>
+        </section>
 
+        <section className="bg-gray-100 py-10 px-5">
+          <h2 className="text-2xl font-bold mb-6">Qurbani Tips</h2>
+
+          <ul className="space-y-3">
+            <li>✔ Animal healthy কিনা check করুন</li>
+            <li>✔ বয়স কমপক্ষে নির্দিষ্ট হতে হবে</li>
+            <li>✔ চোখ, দাঁত, চলাফেরা ঠিক আছে কিনা দেখুন</li>
+            <li>✔ trusted seller থেকে কিনুন</li>
+          </ul>
         </section>
       </div>
     </>
