@@ -1,8 +1,8 @@
 import Image from "next/image";
+import Link from "next/link";
+import BookingButton from "@/components/BookingButton";
 
 export default async function AnimalDetailsPage({ params }) {
-  
-  // 🟢 FIX: params await করতে হবে
   const { id } = await params;
 
   const res = await fetch(
@@ -55,6 +55,7 @@ export default async function AnimalDetailsPage({ params }) {
         {animal.description}
       </p>
 
+        <BookingButton user={null} ></BookingButton>
     </div>
   );
 }
