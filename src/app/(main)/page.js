@@ -61,7 +61,7 @@ export default async function Home() {
         </section>
 
         <section className="bg-gray-100 py-10 px-5">
-          <h2 className="text-2xl font-bold mb-6">Qurbani Tips</h2>
+          <h2 className="text-2xl font-bold mb-6">Tips For Buying Sacrificial Animals</h2>
 
           <ul className="space-y-3">
             <li>✔ Animal healthy কিনা check করুন</li>
