@@ -21,12 +21,9 @@ export default function Home() {
       <div>
         <section className="max-w-7xl mx-auto px-5 py-10">
 
-          {/* Heading */}
           <h2 className="text-2xl font-bold mb-6">
             Featured Animals
           </h2>
-
-          {/* Cards */}
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
 
             <div className="border p-3 rounded-lg">
