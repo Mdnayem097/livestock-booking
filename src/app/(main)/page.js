@@ -60,15 +60,25 @@ export default async function Home() {
           </div>
         </section>
 
-        <section className="bg-gray-100 py-10 px-5">
-          <h2 className="text-2xl font-bold mb-6">Tips For Buying Sacrificial Animals</h2>
-
-          <ul className="space-y-3">
-            <li>✔ Animal healthy কিনা check করুন</li>
-            <li>✔ বয়স কমপক্ষে নির্দিষ্ট হতে হবে</li>
-            <li>✔ চোখ, দাঁত, চলাফেরা ঠিক আছে কিনা দেখুন</li>
-            <li>✔ trusted seller থেকে কিনুন</li>
-          </ul>
+        <section className="bg-gray-100 py-10 px-5 max-w-7xl mx-auto grid md:grid-cols-2 gap-10">
+          <div>
+            <h2 className="text-2xl font-bold mb-6">Tips For Buying Sacrificial Animals</h2>
+            <ul className="space-y-3">
+              <li>✔ Animal healthy কিনা check করুন</li>
+              <li>✔ বয়স কমপক্ষে নির্দিষ্ট হতে হবে</li>
+              <li>✔ চোখ, দাঁত, চলাফেরা ঠিক আছে কিনা দেখুন</li>
+              <li>✔ trusted seller থেকে কিনুন</li>
+            </ul>
+          </div>
+          <div>
+            <h2 className="text-2xl font-bold mb-6">Post-Qurbani Guidelines</h2>
+            <ul className="space-y-3">
+              <li>✔ পরিষ্কার জায়গায় মাংস কাটুন</li>
+              <li>✔ রক্ত ও বর্জ্য মাটির নিচে পুঁতে ফেলুন</li>
+              <li>✔ কোরবানির পর মাংস ভালোভাবে পানি দিয়ে ধুয়ে নিতে হবে</li>
+              <li>✔ আত্মীয়, প্রতিবেশী ও দরিদ্র মানুষের মাঝে মাংস ভাগ করে দিন</li>
+            </ul>
+          </div>
         </section>
       </div>
     </>
