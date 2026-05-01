@@ -55,7 +55,7 @@ export default async function AnimalDetailsPage({ params }) {
         {animal.description}
       </p>
 
-        <BookingButton user={null} ></BookingButton>
+        <BookingButton user={{ name: "test user" }} />
     </div>
   );
 }
