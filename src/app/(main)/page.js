@@ -10,17 +10,19 @@ export default async function Home() {
 
   return (
     <>
+    <div className="flex justify-center items-center">
       <div className="relative w-10/12 h-[250px] md:h-[600px]">
         <Image
-          src="/cow-banner.jpg"
+          src="/cow-banner-removebg-preview.png"
           alt="cow"
           fill
-          className="object-contain rounded-lg"
+          className="object-contain object-center rounded-lg"
         />
         <div className="absolute bottom-4 left-4 md:bottom-10 md:left-10">
           <p className="font-bold text-2xl mb-5 text-green-600">Find Your Perfect Qurbani Animal</p>
           <Link className="btn bg-green-600 text-white" href={'/'}>Browse Now</Link>
         </div>
+      </div>
       </div>
 
       <div>
@@ -65,7 +67,7 @@ export default async function Home() {
           </div>
         </section>
 
-        <section className="bg-gray-100 py-10 px-5 max-w-7xl mx-auto grid md:grid-cols-2 gap-10">
+        <section className=" py-10 px-5 max-w-7xl mx-auto grid md:grid-cols-2 gap-10">
           <div>
             <h2 className="text-2xl font-bold mb-6">Tips For Buying Sacrificial Animals</h2>
             <ul className="space-y-3">

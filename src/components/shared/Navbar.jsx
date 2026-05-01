@@ -1,14 +1,17 @@
-"use client"
+"use client";
 import Link from "next/link";
 import React from "react";
 import NavLink from "./NavLink";
 import { authClient } from "@/lib/auth-client";
 import Image from "next/image";
+import userAvatar from "@/img/default-avatar.jpg";
 
 const Navbar = () => {
-  const {data:session} = authClient.useSession();
+  const { data: session } = authClient.useSession();
   const user = session?.user;
-  console.log(user)
+  console.log(user);
+
+  // const isValidImage = user?.image && user.image.startsWith("http");
   return (
     <div>
       <div className="navbar bg-base-100 shadow-sm">
@@ -36,45 +39,60 @@ const Navbar = () => {
               className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
             >
               <li>
-                <NavLink href={'/'}>Home</NavLink>
+                <NavLink href={"/"}>Home</NavLink>
               </li>
               <li>
-                <NavLink href={'/animals'}>All Animals</NavLink>
+                <NavLink href={"/animals"}>All Animals</NavLink>
               </li>
             </ul>
           </div>
-          <Link href={'/'} className="btn btn-ghost text-xl">Livestock <span className="text-green-600">Booking</span></Link>
+          <Link href={"/"} className="md:btn btn-ghost text-xl">
+            Livestock <span className="text-green-600">Booking</span>
+          </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1 space-x-5">
             <li>
-                <NavLink href={'/'}>Home</NavLink>
-              </li>
-              <li>
-                <NavLink href={'/animals'}>All Animals</NavLink>
-              </li>
+              <NavLink href={"/"}>Home</NavLink>
+            </li>
+            <li>
+              <NavLink href={"/animals"}>All Animals</NavLink>
+            </li>
           </ul>
         </div>
         <div className="flex items-center gap-2 navbar-end">
-        <p className="hidden md:block">Hello, {user?.name || "Guest"}</p>
-        {user ? (
-          <button
-            className="btn bg-red-500 text-white"
-            onClick={async () => await authClient.signOut()}
-          >
-            Logout
-          </button>
-        ) : (
-          <>
-          <Link href="/login">
-            <button className="btn bg-purple-500 text-white">Login</button>
-          </Link>
-          <Link href="/register">
-            <button className="btn bg-purple-500 text-white">Register</button>
-          </Link>
-          </>
-        )}
-      </div>
+          <p className="hidden md:block">Hello, {user?.name || "Guest"}</p>
+          {user && (
+            <Link href="/profile">
+              <Image
+                src={user.image || userAvatar}
+                className="rounded-full cursor-pointer"
+                alt="User avatar"
+                width={35}
+                height={35}
+              />
+            </Link>
+          )}
+          {user ? (
+            <button
+              className="btn bg-red-500 text-white"
+              onClick={async () => await authClient.signOut()}
+            >
+              Logout
+            </button>
+          ) : (
+            <>
+              <Link href="/login">
+                <button className="btn bg-purple-500 text-white">Login</button>
+              </Link>
+              <Link href="/register">
+                <button className="btn bg-purple-500 text-white">
+                  Register
+                </button>
+              </Link>
+            </>
+          )}
+        </div>
       </div>
     </div>
   );
