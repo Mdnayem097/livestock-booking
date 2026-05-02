@@ -1,25 +1,95 @@
-import React from "react";
+"use client";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
 
-const bookingPage = () => {
+export default function Form() {
+  const router = useRouter();
+
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    address: "",
+  });
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (
+      !formData.name ||
+      !formData.email ||
+      !formData.phone ||
+      !formData.address
+    ) {
+      alert("All fields are required!");
+      return;
+    }
+
+    // ✅ success alert
+    alert("Form submitted successfully!");
+
+    // ✅ redirect to home page
+    router.push("/");
+  };
+
   return (
-    <div>
-      <fieldset className="fieldset bg-base-200 border-base-300 rounded-box w-xs border p-4">
-        <legend className="fieldset-legend">Page details</legend>
+    <div className="flex justify-center items-center min-h-screen">
+      <form onSubmit={handleSubmit}>
+        <fieldset className="fieldset bg-base-200 border-base-300 rounded-box w-xs border p-4">
+          <legend className="fieldset-legend">Page details</legend>
 
-        <label className="label">Name</label>
-        <input type="text" className="input" placeholder="Name" />
+          <label className="label">Name</label>
+          <input
+            type="text"
+            name="name"
+            className="input"
+            placeholder="Name"
+            value={formData.name}
+            onChange={handleChange}
+          />
 
-        <label className="label">Email</label>
-        <input type="email" className="input" placeholder="Email" />
+          <label className="label">Email</label>
+          <input
+            type="email"
+            name="email"
+            className="input"
+            placeholder="Email"
+            value={formData.email}
+            onChange={handleChange}
+          />
 
-        <label className="label">Phon Number</label>
-        <input type="number" className="input" placeholder="Phon Number" />
+          <label className="label">Phone Number</label>
+          <input
+            type="number"
+            name="phone"
+            className="input"
+            placeholder="Phone Number"
+            value={formData.phone}
+            onChange={handleChange}
+          />
 
-        <label className="label">Address</label>
-        <input type="text" className="input" placeholder="Address" />
-      </fieldset>
+          <label className="label">Address</label>
+          <input
+            type="text"
+            name="address"
+            className="input"
+            placeholder="Address"
+            value={formData.address}
+            onChange={handleChange}
+          />
+
+          <button className="btn btn-primary mt-4" type="submit">
+            Submit
+          </button>
+        </fieldset>
+      </form>
     </div>
   );
-};
-
-export default bookingPage;
+}
