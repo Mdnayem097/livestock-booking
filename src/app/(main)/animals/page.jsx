@@ -4,7 +4,7 @@ import React from "react";
 
 const AnimalsPage = async () => {
   const animalsData = await fetch(
-    "https://livestock-booking.vercel.app/animals-data.json",
+    "https://livestock-booking-jojr.vercel.app/animals-data.json",
   );
   const data = await animalsData.json();
   return (

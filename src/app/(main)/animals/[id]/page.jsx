@@ -6,7 +6,7 @@ export default async function AnimalDetailsPage({ params }) {
   const { id } = await params;
 
   const res = await fetch(
-    "https://livestock-booking.vercel.app/animals-data.json",
+    "https://livestock-booking-jojr.vercel.app/animals-data.json",
     { cache: "no-store" }
   );
 

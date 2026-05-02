@@ -5,7 +5,7 @@ dns.setServers(['8.8.8.8', '8.8.4.4']);
 
 
 export default async function Home() {
-  const animalsData = await fetch('https://livestock-booking.vercel.app/animals-data.json')
+  const animalsData = await fetch('https://livestock-booking-jojr.vercel.app/animals-data.json')
   const data = await animalsData.json()
 
   return (
