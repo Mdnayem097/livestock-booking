@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 import BookingButton from "@/components/BookingButton";
 
 export default async function AnimalDetailsPage({ params }) {
@@ -9,9 +8,8 @@ export default async function AnimalDetailsPage({ params }) {
     "https://livestock-booking-jojr.vercel.app/animals-data.json",
     { cache: "no-store" }
   );
-
   const data = await res.json();
-
+  
   const animal = data.find(
     (item) => String(item.id) === String(id)
   );
@@ -55,7 +53,7 @@ export default async function AnimalDetailsPage({ params }) {
         {animal.description}
       </p>
 
-        <BookingButton user={{ name: "test user" }} />
+        <BookingButton/>
     </div>
   );
 }

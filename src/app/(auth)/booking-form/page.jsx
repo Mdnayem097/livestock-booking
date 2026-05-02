@@ -32,10 +32,7 @@ export default function Form() {
       return;
     }
 
-    // ✅ success alert
     alert("Form submitted successfully!");
-
-    // ✅ redirect to home page
     router.push("/");
   };
 
@@ -43,7 +40,7 @@ export default function Form() {
     <div className="flex justify-center items-center min-h-screen">
       <form onSubmit={handleSubmit}>
         <fieldset className="fieldset bg-base-200 border-base-300 rounded-box w-xs border p-4">
-          <legend className="fieldset-legend">Page details</legend>
+          <legend className="fieldset-legend pt-10 text-xl font-semibold">Booking From</legend>
 
           <label className="label">Name</label>
           <input
@@ -85,7 +82,7 @@ export default function Form() {
             onChange={handleChange}
           />
 
-          <button className="btn btn-primary mt-4" type="submit">
+          <button className="btn bg-green-600 mt-4" type="submit">
             Submit
           </button>
         </fieldset>
