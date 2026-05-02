@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 const FooterPage = () => {
@@ -34,29 +35,28 @@ const FooterPage = () => {
             Follow Us
           </h2>
           <div className="flex flex-wrap gap-4 text-sm font-medium">
-            <a
+            <Link
               href="#"
-              className="transition hover:text-green-700 hover:underline"
+              className="text-green-900 transition hover:text-green-700 hover:underline"
             >
               Facebook
-            </a>
-            <a
+            </Link>
+            <Link
               href="#"
-              className="transition hover:text-green-700 hover:underline"
+              className="text-green-900 transition hover:text-green-700 hover:underline"
             >
               Twitter
-            </a>
-            <a
+            </Link>
+            <Link
               href="#"
-              className="transition hover:text-green-700 hover:underline"
+              className="text-green-900 transition hover:text-green-700 hover:underline"
             >
               LinkedIn
-            </a>
+            </Link>
           </div>
         </div>
       </div>
 
-      {/* Bottom */}
       <div className="border-t border-green-300">
         <div className="max-w-7xl mx-auto px-5 py-4 flex flex-col md:flex-row justify-between items-center gap-2 text-sm text-gray-600">
           <p>© {new Date().getFullYear()} Your Company. All rights reserved.</p>

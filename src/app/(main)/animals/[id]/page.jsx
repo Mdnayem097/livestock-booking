@@ -48,6 +48,9 @@ export default async function AnimalDetailsPage({ params }) {
       <p><b>Breed:</b> {animal.breed}</p>
       <p><b>Location:</b> {animal.location}</p>
       <p><b>Weight:</b> {animal.weight} KG</p>
+      <p><b>Age:</b> {animal.age} Year</p>
+      <p><b>Location:</b> {animal.location}</p>
+      <p><b>Category:</b> {animal.category}</p>
 
       <p className="mt-4 text-gray-600">
         {animal.description}

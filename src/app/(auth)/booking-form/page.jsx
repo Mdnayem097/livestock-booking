@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { ToastContainer, toast } from 'react-toastify';
 
 export default function Form() {
   const router = useRouter();
@@ -28,12 +29,22 @@ export default function Form() {
       !formData.phone ||
       !formData.address
     ) {
-      alert("All fields are required!");
+      toast.error("All fields are required!");
       return;
     }
 
-    alert("Form submitted successfully!");
-    router.push("/");
+    toast.success("Form submitted successfully!");
+
+    setFormData({
+    name: "",
+    email: "",
+    phone: "",
+    address: "",
+  });
+  
+    setTimeout(() => {
+      router.push("/");
+    }, 1500);
   };
 
   return (
@@ -85,6 +96,7 @@ export default function Form() {
           <button className="btn bg-green-600 mt-4" type="submit">
             Submit
           </button>
+          <ToastContainer />
         </fieldset>
       </form>
     </div>

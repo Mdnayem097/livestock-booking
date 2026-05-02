@@ -3,6 +3,9 @@ import { authClient } from "@/lib/auth-client";
 import Link from "next/link";
 import React from "react";
 import { useForm } from "react-hook-form";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 
 const LoginPage = () => {
   const {
@@ -17,10 +20,22 @@ const LoginPage = () => {
       rememberMe: true,
       callbackURL: "/",
     });
+
+    if (error) {
+      toast.error(error.message || "Login failed!");
+      return;
+    }
+    if (res) {
+      toast.success("Login successful!");
+
+      setTimeout(() => {
+        router.push("/");
+      }, 1000);
+    }
   };
   return (
-    <div className="container mx-auto min-h-[80vh] flex justify-center items-center bg-slate-100">
-      <div className="p-4 rounded-xl bg-white">
+    <div className="container mx-auto min-h-[80vh] flex justify-center items-center">
+      <div className="p-4 rounded-xl">
         <h2 className="font-bold text-3xl text-center mb-10">
           Login Your Account
         </h2>
@@ -59,6 +74,7 @@ const LoginPage = () => {
             Register
           </Link>
         </p>
+        <ToastContainer />
       </div>
     </div>
   );

@@ -1,36 +1,56 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🐄 Livestock Booking System
 
-## Getting Started
+## 📌 Project Purpose
+This is a livestock booking web application where users can explore different animals and book them online. The system ensures that only authenticated users can access the booking page.
 
-First, run the development server:
+---
+
+## 🌐 Live URL
+👉 https://livestock-booking-jojr.vercel.app
+
+---
+
+## 🚀 Key Features
+
+- 🔍 Browse different livestock (cow, goat, etc.)
+- 📄 View detailed information about each animal
+- 🔐 User authentication system (login required)
+- 🛡️ Protected booking page (only logged-in users can access)
+- 🔁 Redirect to login if user is not authenticated
+- ⚡ Fast and dynamic UI using Next.js
+- 🎨 Responsive design with Tailwind CSS & DaisyUI
+
+---
+
+## 🧰 Technologies & Packages Used
+
+### 🔹 Core
+- Next.js
+- React
+
+### 🔹 Styling
+- Tailwind CSS
+- DaisyUI
+
+### 🔹 Authentication
+- better-auth
+
+### 🔹 Form Handling
+- react-hook-form
+
+---
+
+## 📦 Installation & Setup
 
 ```bash
+# Clone the repository
+git clone https://github.com/Mdnayem097/livestock-booking
+
+# Navigate to project folder
+cd your-repo-name
+
+# Install dependencies
+npm install
+
+# Run development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.

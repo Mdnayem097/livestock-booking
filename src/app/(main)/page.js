@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import dns from "node:dns";
-dns.setServers(['8.8.8.8', '8.8.4.4']);
+import "animate.css";
 
 
 export default async function Home() {
@@ -19,8 +18,8 @@ export default async function Home() {
           className="object-contain object-center rounded-lg"
         />
         <div className="absolute bottom-4 left-4 md:bottom-10 md:left-10">
-          <p className="font-bold text-2xl mb-5 text-green-600">Find Your Perfect Qurbani Animal</p>
-          <Link className="btn bg-green-600 text-white" href={'/'}>Browse Now</Link>
+          <p className="hidden md:block font-bold text-2xl mb-5 text-green-600 animate__animated animate__fadeIn">Find Your Perfect Qurbani Animal</p>
+          <Link className="btn bg-green-600 text-white " href={'/'}>Browse Now</Link>
         </div>
       </div>
       </div>
