@@ -4,8 +4,7 @@ import Link from "next/link";
 import React from "react";
 import { useForm } from "react-hook-form";
 import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-
+import { FcGoogle } from "react-icons/fc";
 
 const LoginPage = () => {
   const {
@@ -32,6 +31,12 @@ const LoginPage = () => {
         router.push("/");
       }, 1000);
     }
+  };
+
+  const handleGoogleSignIn = async () => {
+    await authClient.signIn.social({
+      provider: "google",
+    });
   };
   return (
     <div className="container mx-auto min-h-[80vh] flex justify-center items-center">
@@ -68,7 +73,15 @@ const LoginPage = () => {
             <button className="btn btn-neutral mt-4">Login</button>
           </fieldset>
         </form>
-        <p>
+        
+        <button
+          onClick={handleGoogleSignIn}
+          className="flex items-center cursor-pointer my-1.5 justify-center gap-2 bg-green-600 text-white px-4 py-2 rounded-md mx-auto"
+        >
+          <FcGoogle className="w-5 h-5"></FcGoogle>
+          <span>Sign In With Google</span>
+        </button>
+        <p className="text-center">
           Dont Have An Account?{" "}
           <Link className="text-blue-500" href={"/register"}>
             Register

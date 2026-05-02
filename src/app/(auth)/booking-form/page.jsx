@@ -41,7 +41,7 @@ export default function Form() {
     phone: "",
     address: "",
   });
-  
+
     setTimeout(() => {
       router.push("/");
     }, 1500);
@@ -93,7 +93,7 @@ export default function Form() {
             onChange={handleChange}
           />
 
-          <button className="btn bg-green-600 mt-4" type="submit">
+          <button className="btn bg-green-600 mt-4 text-white" type="submit">
             Submit
           </button>
           <ToastContainer />

@@ -1,11 +1,11 @@
 "use client";
 import { authClient } from "@/lib/auth-client";
 import Link from "next/link";
-import { useRouter } from "next/navigation"; // 🔥 FIX (next/router না)
+import { useRouter } from "next/navigation"; 
 import React from "react";
 import { useForm } from "react-hook-form";
 import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { FcGoogle } from "react-icons/fc";
 
 const RegisterPage = () => {
   const router = useRouter();
@@ -27,13 +27,11 @@ const RegisterPage = () => {
       callbackURL: "/",
     });
 
-    // ❌ error case
     if (error) {
       toast.error(error.message || "Registration failed!");
       return;
     }
 
-    // ✅ success case
     if (res) {
       toast.success("Registration successful!");
 
@@ -41,6 +39,12 @@ const RegisterPage = () => {
         router.push("/login");
       }, 1200);
     }
+  };
+
+  const handleGoogleSignIn = async () => {
+    await authClient.signIn.social({
+      provider: "google",
+    });
   };
 
   return (
@@ -52,7 +56,6 @@ const RegisterPage = () => {
 
         <form onSubmit={handleSubmit(handelRegister)}>
           <fieldset className="fieldset bg-base-200 border-base-300 rounded-box w-xs border p-4">
-
             <label className="label">Name</label>
             <input
               type="text"
@@ -101,20 +104,23 @@ const RegisterPage = () => {
               <p className="text-red-600">{errors.password.message}</p>
             )}
 
-            <button className="btn btn-neutral mt-4">
-              Register Now
-            </button>
-
+            <button className="btn btn-neutral mt-4">Register Now</button>
           </fieldset>
         </form>
-
-        <p>
+        
+        <button
+          onClick={handleGoogleSignIn}
+          className="flex items-center cursor-pointer my-1.5 justify-center gap-2 bg-green-600 text-white px-4 py-2 rounded-md mx-auto"
+        >
+          <FcGoogle className="w-5 h-5"></FcGoogle>
+          <span>Sign In With Google</span>
+        </button>
+        <p className="text-center">
           Do you have an account?{" "}
           <Link className="text-blue-500" href={"/login"}>
             Login
           </Link>
         </p>
-
         <ToastContainer />
       </div>
     </div>

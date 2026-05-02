@@ -11,7 +11,8 @@ const Navbar = () => {
   const user = session?.user;
   console.log(user);
 
-  // const isValidImage = user?.image && user.image.startsWith("http");
+  const imageSrc =
+    user?.image && user.image.startsWith("http") ? user.image : userAvatar;
   return (
     <div>
       <div className="navbar bg-base-100 shadow-sm">
@@ -65,7 +66,7 @@ const Navbar = () => {
           {user && (
             <Link href="/profile">
               <Image
-                src={user.image || userAvatar}
+                src={imageSrc}
                 className="rounded-full cursor-pointer"
                 alt="User avatar"
                 width={35}
