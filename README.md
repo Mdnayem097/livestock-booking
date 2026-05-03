@@ -26,7 +26,7 @@ This is a livestock booking web application where users can explore different an
 
 ### 🔹 Core
 - Next.js
-- React
+- javascript
 
 ### 🔹 Styling
 - Tailwind CSS
